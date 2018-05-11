@@ -1,12 +1,11 @@
 // ==UserScript==
 // @name          WME Junction Angle Info
-// @namespace     https://github.com/milkboy/WME-ja
 // @description   Show the angle between two selected (and connected) segments
-// @include       /^https:\/\/(www|beta)\.waze\.com\/(?!user\/)(.{2,6}\/)?editor\/.*$/
-// @updateURL     https://github.com/milkboy/WME-ja/raw/master/wme_junctionangle.user.js
-// @version       1.13.4
+// @include       /^https:\/\/(www|beta)\.waze\.com\/(?!user\/)(.{2,6}\/)?editor.*$/
+// @version       2.0.4
 // @grant         none
-// @copyright     2016 Michael Wikberg <waze@wikberg.fi>
+// @namespace     https://greasyfork.org/scripts/35547-wme-junction-angle-info/
+// @copyright     2018 seb-d59, 2016 Michael Wikberg <waze@wikberg.fi>
 // @license       CC-BY-NC-SA
 // @icon          data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAA6pSURBVFhHrZkJcBNnlscbgjEZmHAYsHVZUrek7pbUuo9W674l65Z8WzbGxoAxhzNgcweMDeY0GLDHwYBhGCABTEwIOSaTZBIyye6mcjBJFTs7O5Xazc4ks7NbU7vJzjKVrc0+RVqwhWEC5NW/VFKr3//79fe+fv3JRrp2bjs00NfW3gqqSldojCqFVk4q8LK4z+a2kEosVRVIVnrL60KMU602SfnaohIaQR0zb/72428eNr7+n6/r14bBh2+ahaJCDMOcWk9ndOuFFdeQlrbF4USZ0aqlNDJKS8YrovXNNSa7PlEVSTdVK3REMGIDcbEiuU5c3hDhmgvA6PV3X8p5P2x89ecv6XIRWCX94bFVP//l+l9lhYikpTB8MOauW1y1pqN13ab26oZkrCLo9JuBZj77CYfH0LysJt1UXtdcqXALwOJHu5bkXB8tRl85C26Mj3xm5eU7QLWN5TB8RV0MXpPVYbVRNuOJqVoT5fAx9c1V3bs2Ny2pYSxqX9AWSvlYpqkc87RPP/tNzvKRo6Y9AEzratrvAD25rrW+sYKQCUQ4F17Ti8pXrlmytLUhFHVX1kTLIq7mltrautSuPTsa1qQgubEznjP7PuKtv3sVPGkPfgeomD1bSqHA1La6OVUZikFJYx54raiOdGxYtXvf9i1b1h3q37dpc6cmiELyqdHBnNn3Ef/+pz9aKgkeM/3UinM5oOp0tLy6rLYh7g9Z043Jhqby9nVLgePg4d4Nm9vXrV99fHhw6OmjiUSshJ4CQGCRM5ssvri+SVeIIPVjuY9jy4UzkUJO6MQn2QOTRNv2NNj2NvbmgKJJD3DU1MfWrm/t3Lh6X1/34NN9q59cfnxk8NrLzw2f/PGh/v1LW5pNNgOk6ROCnM0k8dX7R30LkMLCO0CvrZqr3Hnjq18fNBc2X/v2yCSx//h2cG6vbhtte2VjfBuycduT+/p3Dp8e6N6zdf/h3U+PDJw+f2LkpyeODPXv6O3auHlDV1fXzu5doZQf0sItTM7m7rh1Yw9DrXrx59tlDwY0cmkAnAk9B7oRiqJI74Fth4f2n3n2xPnRM8dODe7p6926Y/OmbRuf6t7avbtn995eiKOHjyRqM32sYpUnZ3PPGKtHJinZ0I1b2SN3xzMvjICzxFxSWV0bjsWRsRcvDB4/1LmlfV9/b++B7u7dXb37d/YdOTBw7GjXzq66dK1erwNwIcGBtNgya87mnjEB6LvET54bAmeucjZBEC6vC9nc1bH3UM/A8MHdfT19R/cOHDuyrfupqtoqlVoFHBKRJGKKd5XvOb70NKTRKSxnc894YKCDJ7vBOdrkunDtwtU3riKwaAaG+3fu69q0bX2yIiGn5MCBi/GkpbK36uArT/4yu/jf6vwQ0kDQ8nNOk8cDA0HfB9vOvauA5tyVc8ja9e2hSJCUksAhxWVVtvT+2oHX1v5tlmO8QiEaMs9dPZFzmjweDOjL//pPV1oJtn0ndw+eGjRbzQhwUISi3tl0uH74zY738yBA729+++aOK5/tOdbTnFnX7T2Lc2bfR7z2zovgaamWXn3jeZihTMmGGk9f7/wwD+Kd9Tfe33L91zsu/8ueoc/3Hfl0108+3vbK6JpRSObbZvzh3z7P+T1yZLti88aqLM2lly8heRwfbHnzH7ov/m7vIHD8dufZG0+9+u6GO7h18QTkb+lbk/N7tHjpzTHUOVMV4WzcvW7V2lXegBfH8QzQOxs++mjr67/peeb3e4+C4A18hIO3OUDnV17e33RgUbyGRU+BB/5HN9/LuT5swB7N36iDy0M1C3GSwHCCLUAFuBT5x56fAgRMCUwMTE8ex9m2i0srFslsJZA5XvLgwt//4bOc90NF9ubi0oWJdHm0psIdCetsdlSuQG52jX6w5S0o1ngO0KXVL3h9ptsEQh/X0JK2rml3djyFBTKPfUet/KEX08GRTO+Bzacn5YzVJi1+pycW8kQjGKVA3uqYsKKh3wwuGrHbjFCaTI51pn3thvTJD1de++a2lo3+SRwi4Ft1lPugO+tbf/nv7EJmmaaYI/pITSxYERLIMEIrswXdhEaNvNnxwdvrf/XGuvf608fSjkY5LseM8yEBZGpdsuTZz8ej3BYcl1dY4BzUOWvf8HYYJjfgfeNnb1+FeYUsLlMQaQgualvsjnkT9SkOzlsgLFZbdErGgOyp7q+y1WmU2mgi2rml05POLDSubVZ8/8U8iDy1Xf2aaVueRafKSqAK99raQnO/9NKZ5ApH9uRS80yRBtPaDI6wy+y32kN2voxfjBWjCpFISSKta1r7j/Vfee0KtAHoB5DAdxXl1eg+qh66np2qrNz1qjXdjT0DG2DaQLBy4ecOtK7cCcapXNUC2mVRM/qFghI+KXSF3dVNNeUNFaGKsMaiK8F4yPOv51rkU/0dkMNmpsEYeaP+VaUOXaWXNfJduVrfpSks3ePF0rlskUBEybUmo9FqVurVEjmB4pjD6zTQRpKSU1q1wmjIAV1+dVQRYkFyZNdI3mDfXVDE2mPvRnefUdR4wIplKOBQbLaUwxGjbFQkJGU8iZiHYXyxmI+hLB53IZsF0uoMBCljc3gcvkAEt312elZ2LQYLdX3Z8sv/kTfM3Qq54Pn5bbjG8r7KavHZT6VJIxhyKTZPTHAwCQDxxDhLiLH4fI5QCFilIhFKECSlWMAqQSViMSmFj6hUnpsh3DsX8mHm86wn19bME/0+QCCYaTBk62cKSbmAkPFxKRsVA5ZATEjkclKpxCkKXuUajRAXYyRezOPNYcGqkiK7+naFqjMzTCZ0rVf+nOc7ibI090bJquXiv4qCYhb9mEAuwaQqTKYQyZWYjIKiiCmlgCSKBfx5HHYRl0MZtNaAh3bDvYYvEPIRq91qDEoBCLpwnukk+m40WUEbA1sOVSLAKZRUimTq7GwJCClXLCoWCtgYypdKZhUXKRiDJeDBDeo5fC5SUZcUWed8p3o9CA0otvc82LJUs3kiOV8iZ6F4CSriiPFSguSTBF9GElqlykIrbUa1w6SwGnReq7s8ijQtTWMAZETqT97Ic5yoTxjhA9CAqgbeyABpZgJQKa4oFohLhBIA4pEkWyJaIOQtREtZhLBUKSYsaqlNixooFiVCevdu5zM/YDPToep5jo+o+pGPAahYOx1oUJmGK5bO4wkXCjGBQsGTk0UojyPFFHa9yscovbS9IiCiKVPEhfzi0knYA7BN09te+N88x0dU09lPMzNkmM6TyIq4wgUCEUdCsAlioRhlERimk5OMCjcrxWaFPmK3lfs1AbOrMoS8fPm0yPoEi57afP53eY6PqPTJjwCIrX9crFQLZVQJJhbIKKGKEmrkhEmp8tBqn5F0qCiv3lEdsKTcujKrMeRABgYPiMxzAKh2+L08R1Dr8Bl0NoII99RmPx4dQktmwsp+bKYYXXmjFQ6eHZPDkQKOYM0n4xNBlUczf2qZT01nYSKBVM4SSeajaClFqJwmfdBKubQyh1IT1Dtr/eZKNx2zE3al1KZB1q5dhluLSoxT4vsuTHS81di1am5B4WMFt4H+3iJGENaK8NM3wyEMQZyOU9/EI3PnN9xYduwgq6A5MiH9m1DPMADxdPPkBiOh0Qopiq+QkbTa4LeaonZj2GSvckZaYp76AO6m6JgVZssUcSJeH62ycuH5Z2ptGW+38toXIRdV2vo3XtttoH92awoRVkdq9KtUCkMKEv5n7wekb64BIKGGI1Yq5nE5M+bPWyDil+CCH/KL5ojnEzaSSTK2Spuz1oOaJZaU0xBikksqkeqacGW1FzJLnUXwdBzv+K2+vdtvlyxbwUxgVM8XmRNulyxbwf/X8ue+ZJsL4TrlBqXKbIQGKFZTKjutchgwPS5mcHPCEmj0+Ro8AKQJ6U1xizluT7VUIen6WCziKKUhedJH/XigWzUtTAGyoMQeLZqBPK4Zqhkbf+YEeTf1Zi7S+EOZnlKZtZiC0NpohVmjsGkNPhMdovUBnc6v1pVpPbVeX11A7zdawvZoXQKprCwL+s0aa+bPq7IU3XTunyZajwN69gy8ndeQ6Z+teztmIYX41lsTT84pfeIDUZkYtlZiIweVCwVSvsai5pOljrCjvLHcVmbBdZjWofQk7I6o1eDRWwIW2DqqGI2IIhCTSUnBwxjnsHXTgAm29BPdxwGNjeEFSKHxWNWpm+XLooVIoXT7+DPvSN9cDVaYZZ7aoqBoqcxA0G69vcwSSHltQbPZR8dqy6I1QbPPYHCqMQoVK0USSoKRYqFYhNC0QqFAlUrMaCdZpql3FW7CGmrq+VHJ7Mxtj8wQoouvN9057Y6yxWKbphl9SpgGkNpGGT3ayuYk7dU5IpZ4fdgeNpt8ekuQphiS1BJCmYCDctgCbikqzMyQTkeYzAq336RyZH5wsZjH/uoO/16CWx3S4cIIhqf3qKVGicpG6V1qg0drcGvcCQeQaRxKwJIzpEgt8KVcRqdBqiMFuICLlgpEGMJY1EaT3O7U+cosZqeWsOZ+pLo6t+cNdn/BHZrdb4BkLoGUxpUOhUDBk5pJ2qc3+PVMwFiq5MFxeK91qpxJR6gmoLDIlGYlAOEKHKdIQi5DnB6T1a5x+ehUTShS4QsmPQoPxmEy/9DQLIrH9+d1y0m04vm/hHeNZPfRHGaGyi8O1AXooJGJMKhWKLfL4b3ao4ZXX43PGDCo3Kr44liyJanzagkTTupxAFLTaqPVpDHoEaffbHVqHR6D0aq2+xlHwGrymmQWMZvOMIHU9WFYVS0X/5jHAWo+/1nZjh/f/hnEYx5Xe2Wxplh0ScyWsDqrXDKb1BA2OssdCo8yvCjkrw8kWxKhxWFr3GKvcNiTNpyWSA0EocEVeoWOMSi1GiReWRZJuGMpL+PQ+WMud8ihcxikeopDlPINJRxmenYwFjNNEpGr4NKXNYKoKoeoLPO/nNy3xqliMwvXYzILCSjQ9OQuiombKbcC2gzw0VET0AQXlbmq3fCtrdwOQJak1ZFyiFQoV8LhYlyUEKES8f8BmIA7Ka4NUW4AAAAASUVORK5CYII=
 // ==/UserScript==
@@ -40,15 +39,15 @@ function run_ja() {
 	/*
 	 * First some variable and enumeration definitions
 	 */
-	var junctionangle_version = "1.13.4";
+	var junctionangle_version = "2.0.4";
 
 	var junctionangle_debug = 1;	//0: no output, 1: basic info, 2: debug 3: verbose debug, 4: insane debug
 
 	var ja_last_restart = 0, ja_roundabout_points = [], ja_options = {}, ja_mapLayer;
 
-	var TURN_ANGLE = 45.04;			//Turn vs. keep angle specified in Wiki.
+	var TURN_ANGLE = 45.50;			//Turn vs. keep angle - based on map experiments (45.04 specified in Wiki).
 	var U_TURN_ANGLE = 168.24;		//U-Turn angle based on map experiments.
-	var GRAY_ZONE = 0.5;			//Gray zone angle intended to prevent from irregularities observed on map.
+	var GRAY_ZONE = 1.5;			//Gray zone angle intended to prevent from irregularities observed on map.
 	var OVERLAPPING_ANGLE = 0.666;	//Experimentally measured overlapping angle.
 	
 	var iconOverride = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAHdElNRQfgDAYJMDYlJpsaAAAAB3RFWHRBdXRob3IAqa7MSAAAADt0RVh0RGVzY3JpcHRpb24ACnxoYXJkY29weXwyMDE2LzEyLzA2IDEwOjQ4OjU0CmE1NzMxNTUKWTcwMDU5ODQx4rUkAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAd0RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC45bDN+TgAAAtBJREFUSEu1Vk1rE1EU7X9p6wcKunAbNy5EFIpCF1o3WcVNFpJKGatUhFRsRJ2FZuPHollVpaOLIDogFDTjJqt0E5QOBAass+ksmklae7z3zUffm5mkoeKBQ/LuvHfOvHvffckYgP/OzGCS5vwJbD8ZT3GzMgHz9jGakr0uYmaQ2bl3HfaDIynh7vJFdF/kUvGf5XFalq2VGewtnY8Xs+BO8xX+dBr0SIK/JWL8bPvZqXg+IaWXCsgG/S/3hdiBoDm994V43eqsmkLFoP/wSjCR3iz15iNg98eneFeEtMn3ucvxm+xtrlPocBBGoQ5BNfk2HxS533jKD/8JrMFa724GaYtNhDttdaQaEDxLh1Zrwg3HMva2OspuFBNR6EFwTGgXdLTCIdnANnXk8xTzw5CE3sdbqknjTpCqgcUWBjnkcqGJZ6E8lYduufBaZLSwRpYqdtffCs3G3ePBLjaXwoLTNmO4TRjVKqrVCorCYN/EtW14Xgv6TAGG7cEqT6PWDpZF4BdWTHjAlOHWS6GwTDbx0V4pIE+qvlXBNH16awso1RPVodqy5i/agGoiFX2wCcGj9JXqcJ06ijpFKGVJE24D1txYnFTTJddksIkLU5uCZlI9TA0Fw4FTL6JEYxmpmnyeOyoCao/4lHePaKNeOieZBPDaBkp8sui5UdBgJirPJ5U1V2dPBiZMDvD9kw0nNIrSZaGi1dB0PbRrBcwkq07g25o1CYlmJPK1kA0HZsWAHY7gtmCU88jrVqohxc1MWlwGwr4JUxg9Pz1a1ztNmK10v4tuJ41oF0zFJDoAvQ83aHg4+CtXhUb30Rkepk2Yv+knlSf5b66pzXkA+Mh2a5fE2u3HQ35PIkZGvO2d5msKDUdUgywDpjKQyU0ULey+PCt2ttPQxcFg8neORfkX86QUyUwFkozqNIwbixM0NXs9MzM4jF/nJ6mLD/4btE+M/QUlR+FS5zGpugAAAABJRU5ErkJggg==";
@@ -124,11 +123,12 @@ function run_ja() {
 		defaultOn: { elementType: "checkbox", elementId: "_jaCbShowLayer", defaultValue: true },
 		angleMode: { elementType: "select", elementId: "_jaSelAngleMode", defaultValue: "aDeparture", options: ["aAbsolute", "aDeparture"]},
 		angleDisplay: { elementType: "select", elementId: "_jaSelAngleDisplay", defaultValue: "displayFancy", options: ["displayFancy", "displaySimple"]},
-		angleDisplayArrows: { elementType: "select", elementId: "_jaSelAngleDisplayArrows", defaultValue: "<>", options: ["<>", "⇦⇨", "⇐⇒", "←→", "⇐⇒⇖⇗⇑", "←→↖↗↑"]},
+		angleDisplayArrows: { elementType: "select", elementId: "_jaSelAngleDisplayArrows", defaultValue: "<>", options: ["<><>^", "⇦⇨⇦⇨⇧", "⇐⇒⇐⇒⇑", "←→←→↑", "⇐⇒⇖⇗⇑", "←→↖↗↑"]},
 		override: { elementType: "checkbox", elementId: "_jaCbOverride", defaultValue: false, group: "guess" },
 		overrideAngles: { elementType: "checkbox", elementId: "_jaCboverrideAngles", defaultValue: false, group: "override" },
 		guess: { elementType: "checkbox", elementId: "_jaCbGuessRouting", defaultValue: true },
 		noInstructionColor: { elementType: "color", elementId: "_jaTbNoInstructionColor", defaultValue: "#ffffff", group: "guess"},
+		continueInstructionColor: { elementType: "color", elementId: "_jaTbContinueInstructionColor", defaultValue: "#ffffff", group: "guess"},
 		keepInstructionColor: { elementType: "color", elementId: "_jaTbKeepInstructionColor", defaultValue: "#cbff84", group: "guess"},
 		exitInstructionColor: { elementType: "color", elementId: "_jaTbExitInstructionColor", defaultValue: "#6cb5ff", group: "guess"},
 		turnInstructionColor: { elementType: "color", elementId: "_jaTbTurnInstructionColor", defaultValue: "#4cc600", group: "guess"},
@@ -173,34 +173,34 @@ function run_ja() {
 		var jatab = document.createElement('li');
 
 		//Listen for selected nodes change event
-		window.Waze.selectionManager.events.register("selectionchanged", null, ja_calculate);
+		window.W.selectionManager.events.register("selectionchanged", null, ja_calculate);
 
 		//Temporary workaround. Beta editor changed the event listener logic, but live is still using the old version
 		//if-else should be removed once not needed anymore
-		if("events" in window.Waze.model.segments) {
+		if("events" in window.W.model.segments) {
 			//Live
-			window.Waze.model.segments.events.on({
+			window.W.model.segments.events.on({
 				"objectschanged": ja_calculate,
 				"objectsremoved": ja_calculate
 			});
-			window.Waze.model.nodes.events.on({
+			window.W.model.nodes.events.on({
 				"objectschanged": ja_calculate,
 				"objectsremoved": ja_calculate
 			});
-		} else if("_events" in window.Waze.model.segments) {
+		} else if("_events" in window.W.model.segments) {
 			//Beta editor
-			window.Waze.model.segments.on({
+			window.W.model.segments.on({
 				"objectschanged": ja_calculate,
 				"objectsremoved": ja_calculate
 			});
-			window.Waze.model.nodes.on({
+			window.W.model.nodes.on({
 				"objectschanged": ja_calculate,
 				"objectsremoved": ja_calculate
 			});
 		}
 
 		//Recalculate on zoom end also
-		window.Waze.map.events.register("zoomend", null, ja_calculate);
+		window.W.map.events.register("zoomend", null, ja_calculate);
 		
 		ja_load();
 		ja_loadTranslations();
@@ -355,7 +355,7 @@ function run_ja() {
 		ja_info.appendChild(ja_helpLink(
 			'https://wiki.waze.com/wiki/Roundabouts/USA#Understanding_navigation_instructions', 'roundaboutnav')
 		);
-		ja_info.appendChild(ja_helpLink('https://github.com/milkboy/WME-ja/issues', 'ghissues'));
+		ja_info.appendChild(ja_helpLink('https://www.waze.com/forum/viewtopic.php?f=819&t=61926', 'ghissues'));
 
 		ja_settings_dom.appendChild(ja_info);
 
@@ -372,30 +372,30 @@ function run_ja() {
 		/**
 		 * Initialize JAI OpenLayers vector layer
 		 */
-		if (window.Waze.map.getLayersBy("uniqueName","junction_angles").length === 0) {
+		if (window.W.map.getLayersBy("uniqueName","junction_angles").length === 0) {
 
 			// Create a vector layer and give it your style map.
-			ja_mapLayer = new window.OpenLayers.Layer.Vector(ja_getMessage("name"), {
+			ja_mapLayer = new window.OL.Layer.Vector(ja_getMessage("name"), {
 				displayInLayerSwitcher: true,
 				uniqueName: "junction_angles",
 				shortcutKey: "S+j",
 				accelerator: "toggle" + ja_getMessage("name").replace(/\s+/g,''),
 				className: "junction-angles",
-				styleMap: new window.OpenLayers.StyleMap(ja_style())
+				styleMap: new window.OL.StyleMap(ja_style())
 			});
-
+			
 			//Set visibility according to user preference
 			//ja_mapLayer.setVisibility(ja_getOption("defaultOn"));
 
-			window.Waze.map.addLayer(ja_mapLayer);
+			window.W.map.addLayer(ja_mapLayer);
 			ja_log("version " + junctionangle_version + " loaded.", 0);
-
-			ja_log(window.Waze.map, 3);
-			ja_log(window.Waze.model, 3);
-			ja_log(window.Waze.loginManager, 3);
-			ja_log(window.Waze.selectionManager, 3);
+			
+			ja_log(window.W.map, 3);
+			ja_log(window.W.model, 3);
+			ja_log(window.W.loginManager, 3);
+			ja_log(window.W.selectionManager, 3);
 			ja_log(ja_mapLayer, 3);
-			ja_log(window.OpenLayers, 3);
+			ja_log(window.OL, 3);
 		} else {
 			ja_log("Oh, nice.. We already had a layer?", 3);
 		}
@@ -410,7 +410,7 @@ function run_ja() {
     {
       var newScriptsToggler = document.createElement('li');
       newScriptsToggler.className = 'group';
-      newScriptsToggler.innerHTML = '<div class="controls-container toggler">\
+      newScriptsToggler.innerHTML = '<div class="controls-container main toggler">\
 																		    <input class="layer-switcher-group_scripts toggle" id="layer-switcher-group_scripts" type="checkbox">\
 																		    <label for="layer-switcher-group_scripts">\
 																		    <span class="label-text">Scripts</span>\
@@ -544,7 +544,7 @@ function run_ja() {
 		if (ja_getOption("override")){
 			var WazeModelGraphTurnData = window.require("Waze/Model/Graph/TurnData");
 			var turn = new WazeModelGraphTurnData();
-			turn = window.Waze.model.getTurnGraph().getTurnThroughNode(node, window.Waze.model.segments.get(s_in_id), window.Waze.model.segments.get(s_out_id));
+			turn = window.W.model.getTurnGraph().getTurnThroughNode(node, window.W.model.segments.get(s_in_id), window.W.model.segments.get(s_out_id));
 			var opcode = turn.getTurnData().getInstructionOpcode();
 			switch (opcode) {
 				case "NONE":
@@ -802,29 +802,49 @@ function run_ja() {
 			return ja_routing_type.TURN; //Normal turn (left|right)
 		}
 	}
-
+	
+	function testLayerZIndex(){
+	  // seb-d59: 
+    // Here i search the selection layer and i read the z-index
+    // and put JAI's layer under this one.
+    var zIndex = 0;
+	  for (var i=0; i < window.W.map.layers.length; i++){
+	    if (window.W.map.layers[i].name !== undefined){
+	      if (window.W.map.layers[i].name.search("SelectHighlightFeature") != -1){
+          ja_log(window.W.map.layers[i].name + " zIndex: " + window.W.map.layers[i].getZIndex() ,3);
+          zIndex = parseInt(window.W.map.layers[i].getZIndex()) - 1 ;
+	        ja_mapLayer.setZIndex(zIndex);
+          ja_log("ja_mapLayer new zIndex: " + ja_mapLayer.getZIndex() ,3);
+        }
+	    }
+    }
+  }
+    
 	function ja_calculate_real() {
 		var ja_start_time = Date.now();
 		var ja_nodes = [];
 		var restart = false;
 		ja_log("Actually calculating now", 2);
 		ja_roundabout_points = [];
-		ja_log(window.Waze.map, 3);
+		ja_log(window.W.map, 3);
 		if (typeof ja_mapLayer === 'undefined') {
 			return;
 		}
 		//clear old info
 		ja_mapLayer.destroyFeatures();
 
+		
+    testLayerZIndex();
+		
 		if (ja_getOption("roundaboutOverlayDisplay") === "rOverAlways") {
 			ja_draw_roundabout_overlay();
 		}
 
 		//try to show all angles for all selected segments
-		if (window.Waze.selectionManager.selectedItems.length === 0) { return; }
-		ja_log("Checking junctions for " + window.Waze.selectionManager.selectedItems.length + " segments", 2);
+		if (window.W.selectionManager.getSelectedFeatures().length === 0) { return; }
+		ja_log("Checking junctions for " + window.W.selectionManager.getSelectedFeatures().length + " segments", 2);
 
-		window.Waze.selectionManager.selectedItems.forEach(function(element) {
+		window.W.selectionManager.getSelectedFeatures().forEach(function(element) {
 			ja_log(element, 3);
 			switch (element.model.type) {
 				case "node":
@@ -854,19 +874,19 @@ function run_ja() {
 		var ja_selected_roundabouts = {};
 
 		ja_nodes.forEach(function(node) {
-			ja_log(window.Waze.model.nodes.get(node), 3);
+			ja_log(window.W.model.nodes.get(node), 3);
 
 			var tmp_s = null, tmp_n = null, tmp_junctionID = null;
-			if(window.Waze.model.nodes.get(node) == null ||
-				typeof window.Waze.model.nodes.get(node).attributes.segIDs === 'undefined') {
+			if(window.W.model.nodes.get(node) == null ||
+				typeof window.W.model.nodes.get(node).attributes.segIDs === 'undefined') {
 				return;
 			}
-			window.Waze.model.nodes.get(node).attributes.segIDs.forEach(function(segment) {
+			window.W.model.nodes.get(node).attributes.segIDs.forEach(function(segment) {
 				ja_log(segment, 3);
 
-				if(window.Waze.model.segments.get(segment).attributes.junctionID) {
-					ja_log("Roundabout detected: " + window.Waze.model.segments.get(segment).attributes.junctionID, 3);
-					tmp_junctionID = window.Waze.model.segments.get(segment).attributes.junctionID;
+				if(window.W.model.segments.get(segment).attributes.junctionID) {
+					ja_log("Roundabout detected: " + window.W.model.segments.get(segment).attributes.junctionID, 3);
+					tmp_junctionID = window.W.model.segments.get(segment).attributes.junctionID;
 				} else {
 					tmp_s = segment;
 					tmp_n = node;
@@ -884,7 +904,7 @@ function run_ja() {
 					'in_n': tmp_n,
 					'out_s': null,
 					'out_n': null,
-					'p': window.Waze.model.junctions.get(tmp_junctionID).geometry
+					'p': window.W.model.junctions.get(tmp_junctionID).geometry
 				};
 			}
 		});
@@ -910,12 +930,12 @@ function run_ja() {
 				//Transform LonLat to actual layer projection
 				var tmp_roundabout_center = ja_coordinates_to_point(ja_selected_roundabouts[tmp_roundabout].p.coordinates);
 				var angle = ja_angle_between_points(
-					window.Waze.model.nodes.get(ja_selected_roundabouts[tmp_roundabout].in_n).geometry,
+					window.W.model.nodes.get(ja_selected_roundabouts[tmp_roundabout].in_n).geometry,
 					tmp_roundabout_center,
-					window.Waze.model.nodes.get(ja_selected_roundabouts[tmp_roundabout].out_n).geometry
+					window.W.model.nodes.get(ja_selected_roundabouts[tmp_roundabout].out_n).geometry
 				);
 				ja_mapLayer.addFeatures([
-					new window.OpenLayers.Feature.Vector(
+					new window.OL.Feature.Vector(
 						tmp_roundabout_center,
 						{
 							angle: ja_round(angle) + '°',
@@ -925,6 +945,7 @@ function run_ja() {
 						}
 					)
 				]);
+				
 			}
 		}
 
@@ -933,7 +954,7 @@ function run_ja() {
 		/*
 		 * Define a base distance to markers, depending on the zoom level
 		 */
-		switch (window.Waze.map.zoom) {
+		switch (window.W.map.zoom) {
 			case 10:
 				ja_label_distance = 2.8;
 				break;
@@ -965,12 +986,12 @@ function run_ja() {
 				ja_label_distance = 400;
 				break;
 			default:
-				ja_log("Unsupported zoom level: " + window.Waze.map.zoom + "!", 2);
+				ja_log("Unsupported zoom level: " + window.W.map.zoom + "!", 2);
 		}
 
 		ja_label_distance *= (1 + (0.2 * parseInt(ja_getOption("decimals"))));
 
-		ja_log("zoom: " + window.Waze.map.zoom + " -> distance: " + ja_label_distance, 2);
+		ja_log("zoom: " + window.W.map.zoom + " -> distance: " + ja_label_distance, 2);
 
 
 		/**
@@ -1009,9 +1030,9 @@ function run_ja() {
 
 		//Loop through all 15m or less long segments and collect double-turn disallowed ones
 		if (ja_getOption("angleMode") === "aDeparture" && ja_nodes.length > 1) {
-			window.Waze.selectionManager.selectedItems.forEach(function (selectedSegment) {
+			window.W.selectionManager.getSelectedFeatures().forEach(function (selectedSegment) {
 				var segmentId = selectedSegment.model.attributes.id;
-				var segment = window.Waze.model.segments.objects[segmentId];
+				var segment = window.W.model.segments.objects[segmentId];
 				ja_log("Checking " + segmentId + " for double turns ...", 2);
 
 				var len = ja_segment_length(segment);
@@ -1019,21 +1040,21 @@ function run_ja() {
 
 				if (Math.round(len) <= 15) {
 
-					var fromNode = window.Waze.model.nodes.get(segment.attributes.fromNodeID);
-					var toNode = window.Waze.model.nodes.get(segment.attributes.toNodeID);
+					var fromNode = window.W.model.nodes.get(segment.attributes.fromNodeID);
+					var toNode = window.W.model.nodes.get(segment.attributes.toNodeID);
 					var a_from = ja_getAngle(segment.attributes.fromNodeID, segment);
 					var a_to = ja_getAngle(segment.attributes.toNodeID, segment);
 
 					fromNode.attributes.segIDs.forEach(function (fromSegmentId) {
 						if (fromSegmentId === segmentId) return;
-						var fromSegment = window.Waze.model.segments.objects[fromSegmentId];
+						var fromSegment = window.W.model.segments.objects[fromSegmentId];
 						var from_a = ja_getAngle(segment.attributes.fromNodeID, fromSegment);
 						var from_angle = ja_angle_diff(from_a, a_from, false);
 						ja_log("Segment from " + fromSegmentId + " angle: " + from_a + ", turn angle: " + from_angle, 2);
 
 						toNode.attributes.segIDs.forEach(function (toSegmentId) {
 							if (toSegmentId === segmentId) return;
-							var toSegment = window.Waze.model.segments.objects[toSegmentId];
+							var toSegment = window.W.model.segments.objects[toSegmentId];
 							var to_a = ja_getAngle(segment.attributes.toNodeID, toSegment);
 							var to_angle = ja_angle_diff(to_a, a_to, false);
 							ja_log("Segment to " + toSegmentId + " angle: " + to_a + ", turn angle: " + to_angle, 2);
@@ -1067,7 +1088,7 @@ function run_ja() {
 
 		//Start looping through selected nodes
 		for (var i = 0; i < ja_nodes.length; i++) {
-			var node = window.Waze.model.nodes.get(ja_nodes[i]);
+			var node = window.W.model.nodes.get(ja_nodes[i]);
 			var angles = [];
 			var ja_selected_segments_count = 0;
 			var ja_selected_angles = [];
@@ -1078,8 +1099,8 @@ function run_ja() {
 				ja_log("Oh oh.. should not happen?",2);
 				ja_log(node, 2);
 				ja_log(ja_nodes[i], 2);
-				ja_log(window.Waze.model, 3);
-				ja_log(window.Waze.model.nodes, 3);
+				ja_log(window.W.model, 3);
+				ja_log(window.W.model.nodes, 3);
 				continue;
 			}
 			//check connected segments
@@ -1097,7 +1118,7 @@ function run_ja() {
 			ja_log(ja_current_node_segments, 3);
 
 			ja_current_node_segments.forEach(function (nodeSegment, j) {
-				var s = window.Waze.model.segments.objects[nodeSegment];
+				var s = window.W.model.segments.objects[nodeSegment];
 				if(typeof s === 'undefined') {
 					//Meh. Something went wrong, and we lost track of the segment. This needs a proper fix, but for now
 					// it should be sufficient to just restart the calculation
@@ -1120,7 +1141,7 @@ function run_ja() {
 
 			//make sure we have the selected angles in correct order
 			ja_log(ja_current_node_segments, 3);
-			window.Waze.selectionManager.selectedItems.forEach(function (selectedSegment) {
+			window.W.selectionManager.getSelectedFeatures().forEach(function (selectedSegment) {
 				var selectedSegmentId = selectedSegment.model.attributes.id;
 				ja_log("Checking if " + selectedSegmentId + " is in current node", 3);
 				if(ja_current_node_segments.indexOf(selectedSegmentId) >= 0) {
@@ -1176,7 +1197,7 @@ function run_ja() {
 					ja_log("Type is: " + ja_junction_type, 2);
 				}
 				//get the initial marker point
-				point = new window.OpenLayers.Geometry.Point(
+				point = new window.OL.Geometry.Point(
 						node.geometry.x + (ja_extra_space_multiplier * ja_label_distance * Math.cos((ha * Math.PI) / 180)),
 						node.geometry.y + (ja_extra_space_multiplier * ja_label_distance * Math.sin((ha * Math.PI) / 180))
 				);
@@ -1225,7 +1246,7 @@ function run_ja() {
 						//in the direction of the first part
 						ha = angle[0];
 						a = ja_angle_diff(a_in[0], angles[j][0], false);
-						point = new window.OpenLayers.Geometry.Point(
+						point = new window.OL.Geometry.Point(
 								node.geometry.x + (ja_label_distance * 2 * Math.cos((ha * Math.PI) / 180)),
 								node.geometry.y + (ja_label_distance * 2 * Math.sin((ha * Math.PI) / 180))
 						);
@@ -1241,7 +1262,7 @@ function run_ja() {
 					} else {
 						ja_log("Angle between " + angle[1] + " and " + angles[(j + 1) % angles.length][1] + " is " +
 							a + " and position for label should be at " + ha, 3);
-						point = new window.OpenLayers.Geometry.Point(
+						point = new window.OL.Geometry.Point(
 								node.geometry.x + (ja_label_distance * 1.25 * Math.cos((ha * Math.PI) / 180)),
 								node.geometry.y + (ja_label_distance * 1.25 * Math.sin((ha * Math.PI) / 180))
 						);
@@ -1251,6 +1272,8 @@ function run_ja() {
 			}
 		}
 
+    //testLayerZIndex();
+ 
 		ja_last_restart = 0;
 		var ja_end_time = Date.now();
 		ja_log("Calculation took " + String(ja_end_time - ja_start_time) + " ms", 2);
@@ -1293,7 +1316,7 @@ function run_ja() {
 			//add 1/4 of the original distance and hope for the best =)
 			ja_tmp_distance += ja_label_distance / 4;
 			ja_log("setting distance to " + ja_tmp_distance, 2);
-			point = new window.OpenLayers.Geometry.Point(
+			point = new window.OL.Geometry.Point(
 					node.geometry.x + (ja_tmp_distance * Math.cos((ha * Math.PI) / 180)),
 					node.geometry.y + (ja_tmp_distance * Math.sin((ha * Math.PI) / 180))
 			);
@@ -1402,10 +1425,10 @@ function run_ja() {
 		}
 		
 		var anglePoint = withRouting ?
-			new window.OpenLayers.Feature.Vector(
+			new window.OL.Feature.Vector(
 				point,
 				{ angle: angleString, ja_type: ja_junction_type }
-			): new window.OpenLayers.Feature.Vector(
+			): new window.OL.Feature.Vector(
 			point,
 			{ angle: ja_round(a) + "°", ja_type: "generic" }
 		);
@@ -1420,8 +1443,8 @@ function run_ja() {
 
 		//Draw a line to the point
 		ja_mapLayer.addFeatures([
-				new window.OpenLayers.Feature.Vector(
-					new window.OpenLayers.Geometry.LineString([node.geometry, point]),
+				new window.OL.Feature.Vector(
+					new window.OL.Geometry.LineString([node.geometry, point]),
 					{},
 					{strokeOpacity: 0.6, strokeWidth: 1.2, strokeDashstyle: "solid", strokeColor: "#ff9966"}
 				)
@@ -1434,17 +1457,17 @@ function run_ja() {
 	}
 
 	function ja_draw_roundabout_overlay(junctionId) {
-		(junctionId === undefined ? (window.Waze.model.junctions.getObjectArray()) : (function (junction) {
+		(junctionId === undefined ? (window.W.model.junctions.getObjectArray()) : (function (junction) {
 			return junction === undefined ? [] : [ junction ];
 		})
-		(window.Waze.model.junctions.get(junctionId))).forEach(function (element) {
+		(window.W.model.junctions.get(junctionId))).forEach(function (element) {
 			ja_log(element, 3);
 			var nodes = {};
-			element.segIDs.forEach(function(s) {
-				var seg = window.Waze.model.segments.get(s);
+			element.attributes.segIDs.forEach(function(s) {
+				var seg = window.W.model.segments.get(s);
 				ja_log(seg, 3);
-				nodes[seg.attributes.fromNodeID] = window.Waze.model.nodes.get(seg.attributes.fromNodeID);
-				nodes[seg.attributes.toNodeID] = window.Waze.model.nodes.get(seg.attributes.toNodeID);
+				nodes[seg.attributes.fromNodeID] = window.W.model.nodes.get(seg.attributes.fromNodeID);
+				nodes[seg.attributes.toNodeID] = window.W.model.nodes.get(seg.attributes.toNodeID);
 			});
 
 			ja_log(nodes, 3);
@@ -1462,13 +1485,13 @@ function run_ja() {
 			ja_log(distances, 3);
 			ja_log("Mean distance is " + distances.reduce(function(a,b){return a + b;}) / distances.length, 3);
 
-			var circle = window.OpenLayers.Geometry.Polygon.createRegularPolygon(
+			var circle = window.OL.Geometry.Polygon.createRegularPolygon(
 				center,
 				distances.reduce(function(a,b){return a + b;}) / distances.length,
 				40,
 				0
 			);
-			var roundaboutCircle = new window.OpenLayers.Feature.Vector(circle, {'ja_type': 'roundaboutOverlay'});
+			var roundaboutCircle = new window.OL.Feature.Vector(circle, {'ja_type': 'roundaboutOverlay'});
 			ja_roundabout_points.push(circle);
 			ja_mapLayer.addFeatures([roundaboutCircle]);
 		});
@@ -1672,10 +1695,10 @@ function run_ja() {
 
 	function ja_get_streets(segmentId) {
 		var primary =
-			window.Waze.model.streets.objects[window.Waze.model.segments.objects[segmentId].attributes.primaryStreetID];
+			window.W.model.streets.objects[window.W.model.segments.objects[segmentId].attributes.primaryStreetID];
 		var secondary = [];
-		window.Waze.model.segments.objects[segmentId].attributes.streetIDs.forEach(function (element) {
-			secondary.push(window.Waze.model.streets.objects[element]);
+		window.W.model.segments.objects[segmentId].attributes.streetIDs.forEach(function (element) {
+			secondary.push(window.W.model.streets.objects[element]);
 		});
 		ja_log(primary, 3);
 		ja_log(secondary, 3);
@@ -1688,7 +1711,7 @@ function run_ja() {
 	 * @returns {number}
 	 */
 	function ja_segment_length(segment) {
-		var len = segment.geometry.getGeodesicLength(window.Waze.map.projection);
+		var len = segment.geometry.getGeodesicLength(window.W.map.projection);
 		ja_log("segment: " + segment.attributes.id
 				+ " computed len: " + len + " attrs len: " + segment.attributes.length, 3);
 		return len;
@@ -1757,21 +1780,21 @@ function run_ja() {
 
 	function ja_is_roundabout_normal(junctionID, n_in) {
 		ja_log("Check normal roundabout", 3);
-		var junction = window.Waze.model.junctions.get(junctionID);
+		var junction = window.W.model.junctions.get(junctionID);
 		var nodes = {};
 		var numValidExits = 0;
-		junction.segIDs.forEach(function (element, index) {
-			var s = window.Waze.model.segments.get(element);
+		junction.attributes.segIDs.forEach(function (element, index) {
+			var s = window.W.model.segments.get(element);
 			ja_log("index: " + index, 3);
 			//ja_log(s, 3);
 			if (!nodes.hasOwnProperty(s.attributes.toNodeID)) {
 				ja_log("Adding node id: " + s.attributes.toNodeID, 3);
 				//Check if node has allowed exits
 				var allowed = false;
-				var currNode = window.Waze.model.nodes.get(s.attributes.toNodeID);
+				var currNode = window.W.model.nodes.get(s.attributes.toNodeID);
 				ja_log(currNode, 3);
 				currNode.attributes.segIDs.forEach(function (element2) {
-					var s_exit = window.Waze.model.segments.get(element2);
+					var s_exit = window.W.model.segments.get(element2);
 					ja_log(s_exit, 3);
 					if (s_exit.attributes.junctionID === null) {
 						ja_log("Checking: " + s_exit.attributes.id, 3);
@@ -1789,7 +1812,7 @@ function run_ja() {
 				});
 				if (allowed) {
 					numValidExits++;
-					nodes[s.attributes.toNodeID] = window.Waze.model.nodes.get(s.attributes.toNodeID);
+					nodes[s.attributes.toNodeID] = window.W.model.nodes.get(s.attributes.toNodeID);
 				}
 			}
 		});
@@ -1810,9 +1833,9 @@ function run_ja() {
 					ja_log("Not comparing to n_in ;)", 3);
 				} else {
 					var angle = ja_angle_between_points(
-						window.Waze.model.nodes.get(n_in).geometry,
+						window.W.model.nodes.get(n_in).geometry,
 						ja_coordinates_to_point(junction.geometry.coordinates),
-						window.Waze.model.nodes.get(n).geometry
+						window.W.model.nodes.get(n).geometry
 					);
 					ja_log("Angle is: " + angle, 3);
 					ja_log("Normalized angle is: " + (angle % 90), 3);
@@ -1827,8 +1850,8 @@ function run_ja() {
 						is_normal = false;
 						//Push a marker on the node to show which exit is "not normal"
 						ja_mapLayer.addFeatures([
-								new window.OpenLayers.Feature.Vector(
-									window.Waze.model.nodes.get(n).geometry,
+								new window.OL.Feature.Vector(
+									window.W.model.nodes.get(n).geometry,
 									{
 										angle: '±' + ja_round(Math.min(angle, 90 - angle)),
 										ja_type: ja_routing_type.ROUNDABOUT
@@ -1848,8 +1871,8 @@ function run_ja() {
 	 */
 
 	function ja_coordinates_to_point(coordinates) {
-		return window.OpenLayers.Projection.transform(
-			new window.OpenLayers.Geometry.Point(
+		return window.OL.Projection.transform(
+			new window.OL.Geometry.Point(
 				coordinates[0],
 				coordinates[1]
 			),
@@ -2104,7 +2127,7 @@ function run_ja() {
 
 	var ja_apply = function applyJAOptions() {
 		ja_log("Applying stored (or default) settings", 2);
-		if(typeof window.Waze.map.getLayersBy("uniqueName","junction_angles")[0] === 'undefined') {
+		if(typeof window.W.map.getLayersBy("uniqueName","junction_angles")[0] === 'undefined') {
 			ja_log("WME not ready yet, trying again in 400 ms", 2);
 			setTimeout(function(){ja_apply();}, 400);
 			return;
@@ -2137,7 +2160,7 @@ function run_ja() {
 				}
 			});
 		}
-		window.Waze.map.getLayersBy("uniqueName","junction_angles")[0].styleMap = ja_style();
+		window.W.map.getLayersBy("uniqueName","junction_angles")[0].styleMap = ja_style();
 		ja_calculate_real();
 		ja_log(ja_options, 2);
 	};
@@ -2199,10 +2222,10 @@ function run_ja() {
 	}
 
 	function ja_get_style_rule(routingType, fillColorOption) {
-		return new window.OpenLayers.Rule(
+		return new window.OL.Rule(
 			{
-				filter: new window.OpenLayers.Filter.Comparison({
-					type: window.OpenLayers.Filter.Comparison.EQUAL_TO,
+				filter: new window.OL.Filter.Comparison({
+					type: window.OL.Filter.Comparison.EQUAL_TO,
 					property: "ja_type",
 					value: routingType
 				}),
@@ -2217,10 +2240,10 @@ function run_ja() {
 			});
 	}
 	function ja_get_styleOverride_rule(routingType, fillColorOption) {
-		return new window.OpenLayers.Rule(
+		return new window.OL.Rule(
 			{
-				filter: new window.OpenLayers.Filter.Comparison({
-					type: window.OpenLayers.Filter.Comparison.EQUAL_TO,
+				filter: new window.OL.Filter.Comparison({
+					type: window.OL.Filter.Comparison.EQUAL_TO,
 					property: "ja_type",
 					value: routingType
 				}),
@@ -2240,7 +2263,7 @@ function run_ja() {
 	function ja_style() {
 		ja_log("Point radius will be: " + (parseInt(ja_getOption("pointSize"), 10)) +
 			(parseInt(ja_getOption("decimals") > 0 ? (4 * parseInt(ja_getOption("decimals"))).toString() : "0")), 2);
-		return new window.OpenLayers.Style({
+		return new window.OL.Style({
 			fillColor: "#ffcc88",
 			strokeColor: "#ff9966",
 			strokeWidth: 2,
@@ -2251,7 +2274,7 @@ function run_ja() {
 			fontSize: "10px"
 		}, {
 			rules: [
-				new window.OpenLayers.Rule({
+				new window.OL.Rule({
 					symbolizer: {
 					}
 				}),
@@ -2275,7 +2298,7 @@ function run_ja() {
 				ja_get_styleOverride_rule(ja_routing_type.OverrideTURN_LEFT, "turnInstructionColor"),
 				ja_get_styleOverride_rule(ja_routing_type.OverrideTURN_RIGHT, "turnInstructionColor"),
 				ja_get_styleOverride_rule(ja_routing_type.OverrideBC, "noInstructionColor"),
-				ja_get_styleOverride_rule(ja_routing_type.OverrideCONTINUE, "noInstructionColor"),
+				ja_get_styleOverride_rule(ja_routing_type.OverrideCONTINUE, "continueInstructionColor"),
 				ja_get_styleOverride_rule(ja_routing_type.OverrideKEEP_LEFT, "keepInstructionColor"),
 				ja_get_styleOverride_rule(ja_routing_type.OverrideKEEP_RIGHT, "keepInstructionColor"),
 				ja_get_styleOverride_rule(ja_routing_type.OverrideEXIT, "exitInstructionColor"),
@@ -2284,10 +2307,10 @@ function run_ja() {
 				ja_get_styleOverride_rule(ja_routing_type.OverrideU_TURN, "uTurnInstructionColor"),
 				
 
-				new window.OpenLayers.Rule(
+				new window.OL.Rule(
 					{
-						filter: new window.OpenLayers.Filter.Comparison({
-							type: window.OpenLayers.Filter.Comparison.EQUAL_TO,
+						filter: new window.OL.Filter.Comparison({
+							type: window.OL.Filter.Comparison.EQUAL_TO,
 							property: "ja_type",
 							value: "roundaboutOverlay"
 						}),
@@ -2344,6 +2367,7 @@ function run_ja() {
 			    overrideAngles: "Show angles of \"override instruction\"",
 			    guess: "Estimate routing instructions",
 					noInstructionColor: "Color for best continuation",
+					continueInstructionColor: "Color for continue straight prompt",
 					keepInstructionColor: "Color for keep prompt",
 					exitInstructionColor: "Color for exit prompt",
 					turnInstructionColor: "Color for turn prompt",
@@ -2378,10 +2402,11 @@ function run_ja() {
 					angleDisplayArrows: "Směrové šipky",
 					displayFancy: "Zdobný",
 					displaySimple: "Jednoduchý",
-					override: "Check \"override instruction\"",
-			    overrideAngles: "Show angles of \"override instruction\"",
+					override: "Zvýraznit vynucené hlasové pokyny",
+			    overrideAngles: "Zobrazit úhly vynucených pokynů",
 			    guess: "Odhadovat navigační hlášky",
 					noInstructionColor: "Bez hlášení",
+					continueInstructionColor: "\"Pokračujte rovně\"",
 					keepInstructionColor: "\"Držte se/Zůstaňte\"",
 					exitInstructionColor: "\"Sjeďte\"",
 					turnInstructionColor: "\"Odbočte\"",
@@ -2420,6 +2445,7 @@ function run_ja() {
 			    overrideAngles: "Show angles of \"override instruction\"",
 			    guess: "Arvioi reititysohjeet",
 					noInstructionColor: "ohjeeton \"Suora\"-väri",
+					continueInstructionColor: "Color for continue straight",
 					keepInstructionColor: "\"Pysy vasemmalla/oikealla\"-ohjeen väri",
 					exitInstructionColor: "\"Poistu\"-ohjeen väri",
 					turnInstructionColor: "\"Käänny\"-ohjeen väri",
@@ -2454,6 +2480,7 @@ function run_ja() {
 			    overrideAngles: "Show angles of \"override instruction\"",
 			    guess: "Szacuj komunikaty trasy",
 					noInstructionColor: "Kolor najlepszej kontynuacji",
+					continueInstructionColor: "Color for continue straight",
 					keepInstructionColor: "Kolor dla \"kieruj się\"",
 					exitInstructionColor: "Kolor dla \"zjedź\"",
 					turnInstructionColor: "Kolor dla \"skręć\"",
@@ -2485,10 +2512,11 @@ function run_ja() {
 					angleDisplayArrows: "- стрелки направлений",
 					displayFancy: "Модный",
 					displaySimple: "Простой",
-					override: "Check \"override instruction\"",
-			    overrideAngles: "Show angles of \"override instruction\"",
+					override: "Визуализировать изменённые подсказки",
+			    overrideAngles: "Показывать углы изменённых подсказок",
 			    guess: "Ожидаемые подсказки",
 					noInstructionColor: "- нет подсказки",
+					continueInstructionColor: "Цвет изменённой подсказки \"продолжайте движение прямо\"",
 					keepInstructionColor: "- держитесь",
 					exitInstructionColor: "- съезд",
 					turnInstructionColor: "- поверните",
@@ -2527,6 +2555,7 @@ function run_ja() {
 			    overrideAngles: "Show angles of \"override instruction\"",
 			    guess: "Gissa navigeringsinstruktioner",
 					noInstructionColor: "Färg för \"ingen instruktion\"",
+					continueInstructionColor: "Color for continue straight",
 					keepInstructionColor: "Färg för \"håll höger/vänster\"-instruktion",
 					exitInstructionColor: "Färg för \"ta av\"-instruktion",
 					turnInstructionColor: "Färg för \"sväng\"-instruktion",
@@ -2560,8 +2589,9 @@ function run_ja() {
 			    override: "Contrôler les \"overrides instruction\"",
 			    overrideAngles: "Afficher les angles des \"overrides\" actives",
 			    guess: "Estimer les instructions routage",
-			    noInstructionColor: "Couleur pour tout droit",
-			    keepInstructionColor: "Couleur pour serrez",
+			    noInstructionColor: "Couleur sans instruction",
+			    continueInstructionColor: "Couleur pour \"continuez tout droit\"",
+					keepInstructionColor: "Couleur pour serrez",
 			    exitInstructionColor: "Couleur pour sortez",
 			    turnInstructionColor: "Couleur pour tournez",
 			    uTurnInstructionColor: "Couleur pour demi-tour",
@@ -2595,10 +2625,11 @@ function run_ja() {
 					angleDisplayArrows: "Flechas de dirección",
 					displayFancy: "Lujoso",
 					displaySimple: "Simple",
-					override: "Check \"override instruction\"",
-			    overrideAngles: "Show angles of \"override instruction\"",
+					override: "Revisar \"instrucciones forzadas\"",
+			    overrideAngles: "Mostrar ángulos de \"instrucciones forzadas\"",
 			    guess: "Estimar instrucciones de giro",
 					noInstructionColor: "Sin instrucción",
+					continueInstructionColor: "Color for continue straight",
 					keepInstructionColor: "\"Mantente\"",
 					exitInstructionColor: "\"Sale\"",
 					turnInstructionColor: "\"Gira\"",
@@ -2641,7 +2672,7 @@ function run_ja() {
 			if (
 				ja_is_model_ready() &&
 				ja_is_dom_ready() &&
-				window.Waze.loginManager.isLoggedIn()) {
+				window.W.loginManager.isLoggedIn()) {
 				setTimeout(function () {
 					junctionangle_init();
 				}, 500);
@@ -2661,12 +2692,12 @@ function run_ja() {
 	}
 
 	function ja_is_model_ready() {
-		if(typeof window.Waze === 'undefined' || typeof window.Waze.map === 'undefined') {
+		if(typeof window.W === 'undefined' || typeof window.W.map === 'undefined') {
 			return false;
 		} else {
-			return 'undefined' !== typeof window.Waze.map.events.register &&
-				'undefined' !== typeof window.Waze.selectionManager.events.register &&
-				'undefined' !== typeof window.Waze.loginManager.events.register;
+			return 'undefined' !== typeof window.W.map.events.register &&
+				'undefined' !== typeof window.W.selectionManager.events.register &&
+				'undefined' !== typeof window.W.loginManager.events.register;
 		}
 	}
 
